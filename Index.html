@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    * {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background: #0f172a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: #fff;
+}
+
+.game-container {
+    text-align: center;
+    width: 300px;
+}
+
+h1 {
+    margin-bottom: 10px;
+}
+
+#status {
+    margin: 15px 0;
+    font-size: 18px;
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #1e293b;
+    font-size: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.cell:hover {
+    background: #334155;
+}
+
+button {
+    margin-top: 15px;
+    padding: 10px;
+    width: 100%;
+    border: none;
+    background: #22c55e;
+    color: #000;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #16a34a;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 400px) {
+    .cell {
+        width: 80px;
+        height: 80px;
+    }
+}
+
+.players input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 6px;
+    border: none;
+    border-radius: 4px;
+}
+
+.scoreboard {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    font-size: 16px;
+}
+
+.cell:focus {
+    outline: 3px solid #22c55e;
+    outline-offset: -3px;
+}
+
+/* Winning glow */
+.cell.win {
+    background: #ddec0b !important;
+    color: #000;
+    animation: glow 0.7s infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 5px #22c55e;
+    }
+    to {
+        box-shadow: 0 0 18px #22c55e;
+    }
+}
+
+
+
+
+</style>
+<body>
+
+    <div class="game-container">
+        <h1>Tic Tac Toe</h1>
+        <!-- Player Names -->
+<div class="players">
+    <input type="text" id="playerX" placeholder="Player X Name" value="Player X">
+    <input type="text" id="playerO" placeholder="Player O Name" value="Player O">
+</div>
+
+<!-- Score Board -->
+<div class="scoreboard">
+    <p><span id="nameX">Player X</span>: <span id="scoreX">0</span></p>
+    <p><span id="nameO">Player O</span>: <span id="scoreO">0</span></p>
+</div>
+
+<div id="status">
+    <strong id="turnText">Player X's Turn</strong>
+</div>
+
+
+        <!-- Game Board -->
+        <div class="board">
+            <div class="cell" data-index="0"></div>
+            <div class="cell" data-index="1"></div>
+            <div class="cell" data-index="2"></div>
+            <div class="cell" data-index="3"></div>
+            <div class="cell" data-index="4"></div>
+            <div class="cell" data-index="5"></div>
+            <div class="cell" data-index="6"></div>
+            <div class="cell" data-index="7"></div>
+            <div class="cell" data-index="8"></div>
+        </div>
+
+        <!-- Reset Button -->
+        <button id="reset">Restart Game</button>
+    </div>
+
+    <script src="Index.js"></script>
+</body>
+</html>
